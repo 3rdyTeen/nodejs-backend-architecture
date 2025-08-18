@@ -12,7 +12,10 @@ import { rateLimiter } from './configs/rate-limitter.js';
 /** Import Middlewares */
 import logger from './utils/logger.js';
 import notFound from './middlewares/not-found.js';
-import errHandlerMiddleware from './middlewares/error-handler.js'
+import errHandlerMiddleware from './middlewares/error-handler.js';
+
+/** Load Routes */
+import loadRoutes from './routes/index.js';
 
 const app: Express = express();
 
@@ -49,6 +52,8 @@ app.get('/', (req: Request, res: Response) => {
         message: 'Welcome to the Nodejs Backend Architecture API',
     });
 });
+
+await loadRoutes(app);
 
 app.use(notFound);
 app.use(errHandlerMiddleware);

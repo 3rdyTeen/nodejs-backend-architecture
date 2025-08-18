@@ -15,8 +15,8 @@ export interface ErrorResponse<T> {
 // Success response with data
 export const sendSuccessResponse = <T>(
   res: Response,
-  data?: T | null,
   message?: string,
+  data?: T | null,
   status = 200
 ): Response<SuccessResponse<T>> => {
   return res.status(status).json({
