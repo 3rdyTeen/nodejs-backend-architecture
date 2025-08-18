@@ -11,6 +11,7 @@ import { rateLimiter } from './configs/rate-limitter.js';
 
 /** Import Middlewares */
 import logger from './utils/logger.js';
+import notFound from './middlewares/not-found.js';
 
 const app: Express = express();
 
@@ -50,6 +51,7 @@ app.get('/', (req: Request, res: Response) => {
 
 
 //initialize middlewares here "Not Found and Error Handler"
+app.use(notFound);
 
 export default app;
 
