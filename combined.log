@@ -1,0 +1,7 @@
+{"level":"info","message":"Server running on port 1717","service":"nodejs-backend-architecture","timestamp":"2025-08-18T02:38:23.152Z"}
+{"level":"info","message":"Received GET request to /","service":"nodejs-backend-architecture","timestamp":"2025-08-18T02:39:09.621Z"}
+{"level":"info","message":"Request body, undefined","service":"nodejs-backend-architecture","timestamp":"2025-08-18T02:39:09.621Z"}
+{"level":"info","message":"Server running on port 1717","service":"nodejs-backend-architecture","timestamp":"2025-08-18T02:40:11.851Z"}
+{"level":"info","message":"Server running on port 1717","service":"nodejs-backend-architecture","timestamp":"2025-08-18T02:41:58.109Z"}
+{"level":"info","message":"Received GET request to /","service":"nodejs-backend-architecture","timestamp":"2025-08-18T02:42:06.697Z"}
+{"level":"info","message":"Request body, undefined","service":"nodejs-backend-architecture","timestamp":"2025-08-18T02:42:06.697Z"}
