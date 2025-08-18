@@ -39,7 +39,7 @@ if(NODE_ENV === 'development') app.use(morgan('dev'));
 
 //add stored redis rate limmiter
 
-//Ip based rate limiting for sensitive endpoints
+//Ip based rate limiting for endpoint (general, auth, search), general as default
 app.use(rateLimiter());
 
 app.use(hpp());
