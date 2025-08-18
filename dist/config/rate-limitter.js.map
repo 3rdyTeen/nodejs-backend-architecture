@@ -1,1 +1,0 @@
-{"version":3,"file":"rate-limitter.js","sourceRoot":"","sources":["../../src/config/rate-limitter.ts"],"names":[],"mappings":"AAAA,OAAO,YAAY,MAAM,oBAAoB,CAAC,CAAC,qIAAqI;AAEpL,MAAM,WAAW,GAAG,YAAY,CAAC;IAC7B,QAAQ,EAAE,EAAE,GAAG,EAAE,GAAG,IAAI,EAAE,aAAa;IACvC,GAAG,EAAE,GAAG,EAAE,6CAA6C;IACvD,OAAO,EAAE,8DAA8D;CAC1E,CAAC,CAAC;AAEH,eAAe,WAAW,CAAC"}
