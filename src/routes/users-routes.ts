@@ -7,7 +7,7 @@ const route = '/api/user';
 export default function (app: Application): void {
   // Acess : Public
   // GET : /api/users
-  app.get(`${route}`, list);
+  app.get(`${route}/`, list);
 
   // Acess : Public
   // POST : /api/users/register

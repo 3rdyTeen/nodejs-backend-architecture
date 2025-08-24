@@ -1,8 +1,9 @@
 import { PrismaClient } from "@prisma/client";
+import type { TUserWrite } from "./user-schema.js";
 
 const prisma = new PrismaClient();
 
-export const createUser = async (data: { email: string; name: string; password: string }) => {
+export const createUser = async (data: TUserWrite) => {
   return prisma.user.create({ data });
 };
 
