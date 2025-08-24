@@ -1,4 +1,5 @@
 import 'express';
+import type { TUserRead } from '../modules/user/user-schema.ts';
 
 declare module 'express-serve-static-core' {
   interface Request {
@@ -7,10 +8,6 @@ declare module 'express-serve-static-core' {
 
     /** Custom user object added by auth middleware */
     //update this user interface
-    user?: {
-      id: string;
-      email?: string;
-      role?: string;
-    };
+    user?: TUserRead;
   }
 }

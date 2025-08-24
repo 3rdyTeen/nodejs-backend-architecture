@@ -1,33 +1,34 @@
 import { type Application } from 'express';
-import { list, register } from '../modules/user/user-controller.js';
-import validate  from '../middlewares/validate-request.js';
-import { createUserSchema } from '../modules/user/user-schema.js';
+import { deleteUser, getUser, list, updateUser } from '../modules/user/user-controller.js';
+import { authMiddleware } from '../middlewares/auth-protect.js';
+import validate from '../middlewares/validate-request.js';
+import { updateUserSchema } from '../modules/user/user-schema.js';
 
-const route = '/api/user';
 export default function (app: Application): void {
-  // Acess : Public
+  const route = '/api/users';
+
+  // ---- Public routes ----
+
+
+  // ---- Private routes (protected) ----
+
+  // all routes after this line require auth
+  app.use(route, authMiddleware);
+
+  // Acess : Private
   // GET : /api/users
   app.get(`${route}/`, list);
 
-  // Acess : Public
-  // POST : /api/users/register
-  app.post(`${route}/register`, validate(createUserSchema), register);
+  // Acess : Private
+  // GET : /api/users/{id}
+  app.get(`${route}/:id`, getUser);
 
-//   // Acess : Public
-//   // GET : /api/users/{id}
-  // app.get(`${route}/:id`, getUser);
+  // Acess : PRIVATE
+  // PUT : /api/users/{id}
+  // Params body : ...data
+  app.put(`${route}/:id`,  validate(updateUserSchema), updateUser);
 
-//   // Acess : Public
-//   // POST : /api/users
-//   // Params body : ...data
-  // app.post(`${route}`, createUser);
-
-//   // Acess : Public
-//   // PUT : /api/users/{id}
-//   // Params body : ...data
-  // app.put(`${route}/:id`, updateUser);
-
-//   // Acess : Public
-//   // DELETE : /api/users/{id}
-  // app.delete(`${route}/:id`, deleteUser);
+  // Acess : Private
+  // DELETE : /api/users/{id}
+  app.delete(`${route}/:id`, deleteUser);
 }

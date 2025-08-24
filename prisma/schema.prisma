@@ -18,5 +18,6 @@ model User {
   email         String         @unique(map: "User_email_key")
   name          String
   password      String         
-  created_at    DateTime       @default(now())
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime?      @updatedAt
 }

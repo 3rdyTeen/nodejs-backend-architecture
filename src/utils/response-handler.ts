@@ -1,4 +1,5 @@
 import { type Response } from 'express';
+import { NODE_ENV } from '../configs/environment.js';
 
 export interface SuccessResponse<T> {
   success: true;
@@ -25,6 +26,26 @@ export const sendSuccessResponse = <T>(
     ...(message ? { message } : {}),
   });
 };
+
+export const sendSuccessResponseWithCookie = <T>(
+  res: Response,
+  token: string,
+  data: T,
+  status = 200
+): Response<SuccessResponse<T>> => {
+  const oneDay: number = 1000 * 60 * 60 * 24;
+
+  res.cookie('token', token, {
+    expires: new Date(Date.now() + oneDay),
+    secure: NODE_ENV === 'production',
+    signed: true,
+    sameSite: 'strict',
+    httpOnly: true,
+  });
+  
+  return sendSuccessResponse(res, 'User logged in successfully.', data, status);
+};
+
 
 // Error response
 export const sendErrorResponse = <T>(
